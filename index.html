@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="JARVIS – persönlicher KI-Assistent">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <title>JARVIS</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark"><span></span></div>
+        <div><div class="brand-name">J.A.R.V.I.S.</div><div class="brand-sub">PERSONAL INTELLIGENCE</div></div>
+      </div>
+      <div class="status"><i></i><span>LOKALER PROTOTYP</span></div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">SYSTEM ONLINE · VERSION 0.1</div>
+        <div class="orb-wrap"><div class="orb"><div class="orb-core"></div></div></div>
+        <h1>Guten Tag.</h1>
+        <p class="hero-copy">Ich bin JARVIS. Was kann ich für dich tun?</p>
+        <div class="quick-actions">
+          <button class="quick" data-prompt="Erstelle mir einen Plan für heute.">Tagesplan</button>
+          <button class="quick" data-prompt="Hilf mir beim Lernen.">Lernen</button>
+          <button class="quick" data-prompt="Erkläre mir, was du später alles können wirst.">Funktionen</button>
+        </div>
+      </section>
+
+      <section class="chat-panel">
+        <div class="panel-heading"><span>ASSISTENT</span><span class="muted">SITZUNG</span></div>
+        <div id="messages" class="messages" aria-live="polite">
+          <div class="message jarvis"><div class="avatar">J</div><div class="bubble"><div class="sender">JARVIS</div>System bereit. Dies ist mein erster Prototyp – ich kann bereits Nachrichten anzeigen und, je nach Browser, mit dir sprechen.</div></div>
+        </div>
+        <form id="chat-form" class="composer">
+          <input id="prompt" autocomplete="off" placeholder="Schreibe eine Nachricht an JARVIS …" aria-label="Nachricht">
+          <button id="mic" class="icon-button" type="button" title="Spracheingabe" aria-label="Spracheingabe">⌁</button>
+          <button class="send" type="submit" aria-label="Senden">↑</button>
+        </form>
+        <div class="composer-note">Demo-Modus · Noch keine echte KI-Verbindung</div>
+      </section>
+    </main>
+    <footer>JARVIS CORE <span>·</span> BUILT FOR YOUR DEVICES</footer>
+  </div>
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+    }
+  </script>
+</body>
+</html>
